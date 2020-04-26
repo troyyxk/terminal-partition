@@ -22,8 +22,18 @@ def main():
     preview.refresh()
     ter.refresh()
 
+    while True:
+        s = ter.getstr().decode()
+        if s == "quit":
+            break
+        ter.addstr(s)
+        try:
+            ter.addstr('\n')
+            # window.addstr('*', color_pair(1))
+        except curses.error:
+            pass
 
-
+        
     stdsrc.getch()
     curses.endwin()
     print("y, x, preview_height")
